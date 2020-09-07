@@ -1,0 +1,8 @@
+language: generic
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t prabesh/react-node-docker -f Dockerfile.dev .
+script:
+    - docker run -e CI=true prabesh/react-node-docker npm run test
